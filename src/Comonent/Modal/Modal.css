@@ -1,0 +1,31 @@
+/* Modal fon */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left:  0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Fonni qoraytirish */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  /* Modalning asosiy qismi */
+  .modal-content {
+    width: 200px; /* Modal kengligi */
+    height: 100vh; /* Ekranning butun bo'yi */
+    background-color: #333;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+    position: relative;
+    transform: translateY(-100%); /* Modalni ekrandan tashqariga joylashtirish */
+    transition: transform 0.3s ease; /* Chiqish animatsiyasi */
+  }
+  
+  /* Modal ochilganida transform: translateX(0) orqali chiqadi */
+  .modal-overlay .modal-content {
+    transform: translateY(0);
+  }
+  

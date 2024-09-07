@@ -1,0 +1,16 @@
+{
+    "service": "Services for your digital success",
+    "solutions": "Best solutions to grow your business",
+    "contactUs": "Contact Us",
+    "name": "Your Name",
+    "phoneNumber": "Your Phone Number",
+    "websitePurpose": "Website Purpose",
+    "purposeOptions": {
+      "work": "Work",
+      "business": "Business",
+      "personalBlog": "Personal Blog",
+      "education": "Education",
+      "shop": "Online Shop"
+    }
+  }
+  

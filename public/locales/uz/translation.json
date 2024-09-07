@@ -1,0 +1,16 @@
+{
+    "service": "Sizning raqamli muvaffaqiyatingiz uchun xizmatlar",
+    "solutions": "Biznesingizni rivojlantirish uchun eng yaxshi yechimlar",
+    "contactUs": "Bog'lanish",
+    "name": "Ismingiz",
+    "phoneNumber": "Telefon raqamingiz",
+    "websitePurpose": "Sayt maqsadi",
+    "purposeOptions": {
+      "work": "Ish uchun",
+      "business": "Biznes",
+      "personalBlog": "Shaxsiy blog",
+      "education": "Ta'lim",
+      "shop": "Online do'kon"
+    }
+  }
+  
