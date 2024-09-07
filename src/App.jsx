@@ -15,7 +15,7 @@ function App() {
   return (
     <>
       <Helmet>
-        <title>My Website Title</title>
+        <title>NewTec</title>
         <meta name="description" content="Description of my website" />
         {/* Boshqa meta taglar ham qo'shishingiz mumkin */}
       </Helmet>
