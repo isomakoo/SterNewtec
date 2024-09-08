@@ -84,6 +84,9 @@ justify-content: space-around;
     .form{
       width: 90%;
     }
+    .submit-button{
+      margin-bottom: 30px;
+    }
     .contact-title{
       width: 90% !important;
       font-size: 34px !important;
