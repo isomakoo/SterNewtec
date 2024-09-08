@@ -260,7 +260,7 @@ function Hero() {
       transition={{ duration: 0.5, type: "spring", bounce: 0.3 }} // Bahor effekti va 0.5 soniyada chiqadi
     >
       <button className="close-modal" onClick={closeModal}>
-        <IoMdCloseCircleOutline size={30} />
+      <IoMdCloseCircleOutline color="white" size={30}/>
       </button>
       <div className="modal-content">
       <h2 className="hero-texs"><span className="hero-tex">STAR</span>NEWTEC</h2> 
