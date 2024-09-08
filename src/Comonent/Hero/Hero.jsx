@@ -66,8 +66,8 @@ function Hero() {
 
   // Telegram bot orqali ma'lumot yuborish
   const handleSubmitWebsite = async () => {
-    const token = "YOUR_TELEGRAM_BOT_TOKEN";
-    const chatId = "YOUR_TELEGRAM_CHAT_ID";
+    const token = "7079304090:AAHz0hdemV3kKxzSiksKthyugnQ3oGpBadU";
+    const chatId = "6914657739";
 
     const message = `Yangi sayt so'rovi:\nIsm: ${name}\nTelefon: ${phoneNumber}\nSayt maqsadi: ${websitePurpose}`;
 
