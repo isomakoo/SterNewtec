@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import './ContactForm.css'; // Stil faylini chaqiradi
-import AOS from 'aos';
-import '../../i18next.js'
-import 'aos/dist/aos.css'; // AOS styles
+import '../../i18next.js';
 
 const ContactForm = () => {
   const { t } = useTranslation();
@@ -12,14 +10,6 @@ const ContactForm = () => {
     phone: '',
     question: '',
   });
-
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      easing: 'ease-in-out',
-      once: true,
-    });
-  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -39,7 +29,6 @@ const ContactForm = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-         
           chat_id: '6914657739',
           text: `${t('contactForm.title')}:\n\n${t('contactForm.name')}: ${formData.name}\n${t('contactForm.phone')}: ${formData.phone}\n${t('contactForm.question')}: ${formData.question}`,
         }),
@@ -62,11 +51,11 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="contact-form-container" >
+    <div className="contact-form-container">
       <div className="contact-form">
-        <h3  className='contact-title'>{t('contactForm.title')}</h3>
-        <form onSubmit={handleSubmit}  className='form-action'>
-          <label >
+        <h3 className='contact-title'>{t('contactForm.title')}</h3>
+        <form onSubmit={handleSubmit} className='form-action'>
+          <label>
             {t('contactForm.name')}:
             <input
               type="text"
@@ -75,7 +64,6 @@ const ContactForm = () => {
               value={formData.name}
               onChange={handleChange}
               required
-             
             />
           </label>
           <label>
@@ -87,10 +75,9 @@ const ContactForm = () => {
               value={formData.phone}
               onChange={handleChange}
               required
-              dat
             />
           </label>
-          <label data-aos="fade-left" data-aos-delay="400">
+          <label>
             {t('contactForm.question')}:
             <textarea
               name="question"
@@ -98,14 +85,11 @@ const ContactForm = () => {
               value={formData.question}
               onChange={handleChange}
               required
-             
             ></textarea>
           </label>
           <button
             type="submit"
             className="submit-button"
-            data-aos="zoom-in"
-            data-aos-delay="500"
           >
             {t('contactForm.submit')}
           </button>

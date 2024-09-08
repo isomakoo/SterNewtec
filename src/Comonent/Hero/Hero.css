@@ -202,6 +202,51 @@
     .hero-lnk-btn:hover, .hero-fac-btn:hover, .hero-imst-btn:hover {
       color: #e57f34; /* Change color on hover */
     }
+    /* Hero.css */
+
+/* Custom Modal Overlay Styling */
+/* Custom Modal Overlay Styling */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  right: 0; /* Modal o'ng tomonga yopishib tursin */
+  width: 200px; /* Modal kengligi 200px */
+  height: 100vh; /* Modal balandligi butun ekran bo'ylab */
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+/* Custom Modal Box Styling */
+.custom-modal {
+  background-color: #333;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%; /* Modal kengligi 200pxga moslashadi */
+  height: 100vh; /* Modal balandligi 100vh bo'ladi */
+  z-index: 1001;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Close Button Styling */
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 1002;
+}
+
+
     @media (max-width: 1400px) {
       .hero-list{
         max-width: 100%;

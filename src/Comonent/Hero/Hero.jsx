@@ -24,11 +24,12 @@ function Hero() {
   const typedElement = useRef(null);
   const [isWebsiteModalVisible, setIsWebsiteModalVisible] = useState(false);
   const [name, setName] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");<IoMdCloseCircleOutline />
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [websitePurpose, setWebsitePurpose] = useState("");
 
-  // Qo'shimcha holat: CustomModal ko'rinishini boshqarish
+  const [isOpen, setIsOpen] = useState(false);
 
+  // Typed.js animation
   useEffect(() => {
     const options = {
       strings: [t("services"), t("solutions")],
@@ -43,6 +44,7 @@ function Hero() {
     };
   }, [t]);
 
+  // Website Modalni ko'rsatish va yopish
   const showWebsiteModal = () => {
     setIsWebsiteModalVisible(true);
   };
@@ -50,20 +52,19 @@ function Hero() {
   const handleWebsiteCancel = () => {
     setIsWebsiteModalVisible(false);
   };
-  const [isOpen, setIsOpen] = useState(false);
 
-  // Modalni ochish va overflow yashirish funksiyasi
+  // Modalni ochish va yopish
   const openModal = () => {
     setIsOpen(true);
-    document.body.style.overflow = 'hidden'; // Sahifa scrollni to'xtatish
+    document.body.style.overflow = 'hidden'; // Sahifa skrollini to'xtatish
   };
 
-  // Modalni yopish va overflow-ni tiklash funksiyasi
   const closeModal = () => {
     setIsOpen(false);
-    document.body.style.overflow = 'auto'; // Sahifa scrollni qayta tiklash
+    document.body.style.overflow = 'auto'; // Sahifa skrollini tiklash
   };
 
+  // Telegram bot orqali ma'lumot yuborish
   const handleSubmitWebsite = async () => {
     const token = "YOUR_TELEGRAM_BOT_TOKEN";
     const chatId = "YOUR_TELEGRAM_CHAT_ID";
@@ -86,18 +87,10 @@ function Hero() {
     }
   };
 
+  // Tilni o'zgartirish funksiyasi
   const handleLanguageChange = (lang) => {
     i18n.changeLanguage(lang);
     localStorage.setItem("i18nextLng", lang); // Tanlangan tilni localStorage ga saqlash
-  };
-
-  // CustomModal ochish va yopish funksiyalari
-  const handleMenuClick = () => {
-    setIsCustomModalOpen(true);
-  };
-
-  const handleCloseCustomModal = () => {
-    setIsCustomModalOpen(false);
   };
 
   return (
@@ -132,41 +125,26 @@ function Hero() {
               </a>
             </li>
           </ul>
-          {/* Custom Language Select with Flags */}
           <Select
             defaultValue="ru"
             className="lngess"
             style={{ width: 150 }}
-            onChange={(value) => handleLanguageChange(value)}
+            onChange={handleLanguageChange}
           >
             <Option value="ru">
-              <img
-                src={ru}
-                alt="Russian"
-                style={{ width: 20, marginRight: 10 }}
-              />
+              <img src={ru} alt="Russian" style={{ width: 20, marginRight: 10 }} />
               Russian
             </Option>
             <Option value="uz">
-              <img
-                src={uz}
-                alt="Uzbek"
-                style={{ width: 20, marginRight: 10 }}
-              />
+              <img src={uz} alt="Uzbek" style={{ width: 20, marginRight: 10 }} />
               Uzbek
             </Option>
             <Option value="en">
-              <img
-                src={en}
-                alt="English"
-                style={{ width: 20, marginRight: 10 }}
-              />
+              <img src={en} alt="English" style={{ width: 20, marginRight: 10 }} />
               English
             </Option>
           </Select>
-          {/* Buttonda onClick funksiyasi noto'g'ri chaqirilgan edi */}
-           <button className="menu" onClick={openModal}><IoMdMenu /></button>
-          {/* Menu bosilganda modal ochiladi */}
+          <button className="menu" onClick={openModal}><IoMdMenu /></button>
         </div>
 
         <div className="hero-box">
@@ -271,12 +249,21 @@ function Hero() {
           </Select>
         </div>
       </Modal>
-      <div>
+
+      {/* Custom Modal */}
       {isOpen && (
-        <div className="modal-overlay" onClick={closeModal}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-          <button onClick={closeModal}><IoMdCloseCircleOutline style={{width: 20, height: 20}}/></button>
-            <h2 className="hero-texs"><span className="hero-tex">STAR</span>NEWTEC</h2> 
+  <div className="modal-overlay">
+    <motion.div
+      className="custom-modal"
+      initial={{ x: '100%', scale: 0.7, opacity: 0 }}  // Boshlang'ich holat: o'ngdan va kichraygan holda
+      animate={{ x: 0, scale: 1, opacity: 1 }}         // Yakuniy holat: normal joyiga keladi va kattalashadi
+      transition={{ duration: 0.5, type: "spring", bounce: 0.3 }} // Bahor effekti va 0.5 soniyada chiqadi
+    >
+      <button className="close-modal" onClick={closeModal}>
+        <IoMdCloseCircleOutline size={30} />
+      </button>
+      <div className="modal-content">
+      <h2 className="hero-texs"><span className="hero-tex">STAR</span>NEWTEC</h2> 
             <nav className="linkess">
             <a href="#" className="hero-linkes">
                 {t("about")}
@@ -322,10 +309,10 @@ function Hero() {
               English
             </Option>
           </Select> <br />
-          </div>
-        </div>
-      )}
-    </div>
+      </div>
+    </motion.div>
+  </div>
+)}
     </motion.div>
   );
 }

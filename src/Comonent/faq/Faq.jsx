@@ -114,17 +114,17 @@ const FAQ = () => {
   };
 
   return (
-    <div className="faq-container" data-aos="fade-up">
+    <div className="faq-container" >
       <h3>{t('faq_title')}</h3>
       <ul className="faq-list">
         {questions.map((item, index) => (
-          <li key={index} className="faq-item" data-aos="fade-up" data-aos-delay={index * 100}>
+          <li key={index} className="faq-item" >
             <div className="faq-question" onClick={() => handleToggle(index)}>
               {item.question}
               <span className={`faq-toggle ${activeIndex === index ? 'open' : ''}`}>+</span>
             </div>
             {activeIndex === index && (
-              <div className="faq-answer" data-aos="fade-in">
+              <div className="faq-answer">
                 <p>{item.answer}</p>
                 <p className="action-text">{item.action}</p>
                 <button
